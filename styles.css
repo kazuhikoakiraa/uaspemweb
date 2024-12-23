@@ -1,0 +1,425 @@
+/* Modern Japanese-Inspired Design Theme */
+:root {
+    --primary-color: #D64D4D; /* Bright red inspired by traditional Japanese red */
+    --secondary-color: #394B59; /* Deep indigo */
+    --accent-color: #C7A17A; /* Warm wood tone */
+    --background-light: #F7F6F3; /* Washi paper white */
+    --background-dark: #2A2C2B; /* Sumi ink black */
+    --text-primary: #2A2C2B;
+    --text-secondary: #5D6D7E;
+    --border-color: #E5E5E5;
+    --success-color: #4A9072; /* Matcha green */
+    --error-color: #D64D4D; /* Traditional red */
+}
+
+/* Global Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Sans JP', sans-serif;
+    background: linear-gradient(135deg, var(--background-light) 0%, #E8E4E1 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-primary);
+}
+
+/* Container Styles */
+.container {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 2px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 3rem;
+    max-width: 460px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--primary-color);
+}
+
+/* Form Header */
+.container h2 {
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    letter-spacing: 0.05em;
+    position: relative;
+    display: inline-block;
+}
+
+.container h2::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background-color: var(--primary-color);
+}
+
+/* Input Fields */
+.container input[type="text"],
+.container input[type="email"],
+.container input[type="password"],
+.container input[type="date"],
+.container select,
+.container textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    margin: 0.5rem 0 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 2px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+    background-color: var(--background-light);
+}
+
+.container input:focus,
+.container select:focus,
+.container textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(214, 77, 77, 0.1);
+}
+
+/* Checkbox */
+.container .checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 1rem 0;
+    gap: 0.5rem;
+}
+
+.container .checkbox input[type="checkbox"] {
+    margin: 0;
+    accent-color: var(--primary-color);
+}
+
+/* Button */
+.container button {
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 2px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: white;
+    cursor: pointer;
+    margin-top: 1.5rem;
+    transition: all 0.3s ease;
+    letter-spacing: 0.05em;
+}
+
+.container button:hover {
+    background-color: #C43E3E;
+    transform: translateY(-1px);
+}
+
+.container button:active {
+    transform: translateY(0);
+}
+
+/* Links */
+.container a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    display: inline-block;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.container a:hover {
+    color: #C43E3E;
+}
+
+.container a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+    background-color: currentColor;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.container a:hover::after {
+    transform: scaleX(1);
+}
+
+/* Label Styles */
+.container label {
+    display: block;
+    font-weight: 500;
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    text-align: left;
+    letter-spacing: 0.03em;
+}
+
+/* Notification Styles */
+.notification {
+    padding: 1rem;
+    margin: 1rem 0;
+    border: none;
+    border-radius: 2px;
+    font-size: 0.9rem;
+    position: relative;
+    padding-left: 3rem;
+}
+
+.notification::before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.notification.success {
+    color: var(--success-color);
+    background-color: rgba(74, 144, 114, 0.1);
+}
+
+.notification.success::before {
+    content: "\f00c";
+}
+
+.notification.error {
+    color: var(--error-color);
+    background-color: rgba(214, 77, 77, 0.1);
+}
+
+.notification.error::before {
+    content: "\f071";
+}
+
+.alert {
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border: none;
+    border-radius: 2px;
+}
+
+.alert-danger {
+    color: var(--error-color);
+    background-color: rgba(214, 77, 77, 0.1);
+}
+
+.alert-success {
+    color: var(--success-color);
+    background-color: rgba(74, 144, 114, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .container {
+        padding: 2rem;
+        margin: 1rem;
+    }
+
+    .container h2 {
+        font-size: 1.5rem;
+    }
+
+    .container button {
+        font-size: 0.9rem;
+    }
+}
+
+/* Add these styles to your existing styles.css file */
+
+/* CMS Specific Styles */
+.cms-container {
+    background: var(--background-light);
+    min-height: 100vh;
+    padding-bottom: 2rem;
+}
+
+/* Header Styling */
+.cms-header {
+    background: linear-gradient(135deg, var(--secondary-color) 0%, var(--background-dark) 100%);
+    color: white;
+    padding: 1.5rem 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.cms-header h1 {
+    font-size: 1.8rem;
+    margin: 0;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+}
+
+.cms-header p {
+    margin: 0.5rem 0 0;
+    opacity: 0.9;
+    font-size: 0.9rem;
+}
+
+.cms-header .btn-logout {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.cms-header .btn-logout:hover {
+    background-color: var(--primary-color);
+}
+
+/* Main Content Area */
+.cms-main {
+    background: white;
+    border-radius: 2px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    margin: 0 2rem;
+    padding: 2rem;
+    position: relative;
+}
+
+.cms-main::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--primary-color);
+}
+
+/* Table Styling */
+.cms-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+}
+
+.cms-table th {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 1rem;
+    font-weight: 500;
+    text-align: left;
+    border: none;
+}
+
+.cms-table td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    vertical-align: middle;
+}
+
+.cms-table tr:hover {
+    background-color: var(--background-light);
+}
+
+.cms-table img {
+    border-radius: 2px;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+}
+
+/* Button Styling */
+.cms-btn {
+    padding: 0.6rem 1.2rem;
+    border-radius: 2px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.cms-btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.cms-btn-primary:hover {
+    background-color: #C43E3E;
+}
+
+.cms-btn-warning {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+.cms-btn-warning:hover {
+    background-color: #B08E6A;
+}
+
+.cms-btn-danger {
+    background-color: var(--error-color);
+    color: white;
+}
+
+.cms-btn-danger:hover {
+    background-color: #C43E3E;
+}
+
+/* Modal Styling */
+.modal-content {
+    border-radius: 2px;
+    border: none;
+}
+
+.modal-header {
+    background-color: var(--secondary-color);
+    color: white;
+    border-bottom: none;
+    padding: 1.5rem;
+}
+
+.modal-body {
+    padding: 2rem;
+}
+
+.modal-footer {
+    border-top: none;
+    padding: 1.5rem;
+}
+
+/* Form Styling */
+.form-control, .form-select {
+    border-radius: 2px;
+    border: 1px solid var(--border-color);
+    padding: 0.8rem;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(214, 77, 77, 0.1);
+}
+
+/* Action Buttons Group */
+.action-buttons {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+}
